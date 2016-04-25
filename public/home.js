@@ -3,22 +3,28 @@
 
 $(()=>{
 
-  $('.newTodo').click(openNewTodoModal);
-  $('form.newTodoForm').submit(createNewTodo);
+  $('.newGrade').click(openNewGradeModal);
+  $('.removeGrade').click(deleteGrade);
+  $('form.newGradeForm').submit(createNewGrade);
 });
 
-function createNewTodo(e) {
+function createNewGrade(e) {
   e.preventDefault();
 
-  var newTodo = {
-    desc: $('#newTodoDesc').val(),
-    dueDate: $('#newTodoDueDate').val(),
+  var newGrade = {
+    assignmentName: $('#newGradeAssignmentName').val(),
+    studentScore: $('#newGradeStudentScore').val(),
+    totalScore: $('#newGradeTotalScore').val(),
+    letterGrade: $('#newGradeLetterGrade').val()
   };
 
-  $('#newTodoDesc').val('');
-  $('#newTodoDueDate').val('');
+  $('#newGradeAssignmentName').val('');
+  $('#newGradeStudentScore').val('');
+  $('#newGradeTotalScore').val('');
+  $('#newGradeLetterGrade').val('');
 
-  $.post('/api/grades', newTodo)
+
+  $.post('/api/grades', newGrade)
     .done(() => {
       // rerender the DOM
       $('.modal').modal('hide');
@@ -28,7 +34,17 @@ function createNewTodo(e) {
     });
 }
 
-function openNewTodoModal() {
-  $('.modal').modal('show');
+function deleteGrade(e) {
+  e.preventDefault();
+  $.delete('/api/grades', newGrade)
+    .done(() => {
+      $('.modal').modal('hide');
+    })
+    .fail(err => {
+      console.error('ERROR!!!!', err);
+    });
 }
 
+function openNewGradeModal() {
+  $('.modal').modal('show');
+}

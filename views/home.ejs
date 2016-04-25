@@ -17,7 +17,8 @@
   <div class="container">
     <h1 class="text-center">Grade Central</h1>
 
-    <button class="btn btn-default btn-lg newTodo">New Grade</button>
+    <button class="btn btn-default btn-lg newGrade">New Grade</button>
+    <button class="btn btn-default btn-lg removeGrade">Remove Grade</button>
 
 
     <table class="table">
@@ -27,6 +28,8 @@
           <th>Student Score</th>
           <th>Total</th>
           <th>Letter Grade</th>
+          <th>Remove</th>
+
         </tr>
       </thead>
       <tbody>
@@ -53,12 +56,10 @@
     </table>
   </div>
 
-
-
   <div class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form class='newTodoForm'>
+        <form class='newGradeForm'>
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">New Grade</h4>
@@ -66,19 +67,19 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="newGradeAssignmentName">Assignment Name</label>
-              <input type="text" class="form-control" id="newTodoDesc" placeholder="Buy Eggs." required>
+              <input type="text" class="form-control" id="newGradeAssignmentName" placeholder="Name of the assignment" required>
             </div>
             <div class="form-group">
               <label for="newGradeStudentScore">Student Score</label>
-              <input type="number" class="form-control" id="newTodoDueDate" required>
+              <input type="number" class="form-control" id="newGradeStudentScore"  placeholder="Enter score" required>
             </div>
             <div class="form-group">
               <label for="newGradeTotalScore">Total Score</label>
-              <input type="number" class="form-control" id="new" required>
+              <input type="number" class="form-control" id="newGradeTotalScore"  placeholder="Enter total" required>
             </div>
-            <div class="newGradeLetterGrade">
+            <div class="form-group">
               <label for="newGradeLetterGrade">Letter Grade</label>
-              <input type="text" class="form-control" id="newGradeLetterGrade" required>
+              <input type="text" class="form-control" id="newGradeLetterGrade" placeholder="Enter letter grade" required>
             </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
