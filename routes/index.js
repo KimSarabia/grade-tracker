@@ -13,11 +13,11 @@ router.get('/', (req, res) => {
       res.render('error', {error: err})
     } else {
 
-      grades = grades.map(grade => {
-        grade.dueDate = moment(grade.dueDate, 'X').format('l');
-        grade.createdAt = moment(grade.createdAt, 'X').format('l');
-        return grade;
-      })
+      // grades = grades.map(grade => {
+      //   grade.dueDate = moment(grade.dueDate, 'X').format('l');
+      //   grade.createdAt = moment(grade.createdAt, 'X').format('l');
+      //   return grade;
+      // })
 
       res.render('home', {grades: grades});
     }

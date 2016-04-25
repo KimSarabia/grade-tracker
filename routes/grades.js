@@ -21,6 +21,7 @@ router.route('/')
     // req.body  -->  { totalScore: ??, assignmentName: ?? }
     Grade.create(req.body, err => {
       if(err) {
+        console.log(err);
         return res.status(400).send(err);
       }
       res.send();

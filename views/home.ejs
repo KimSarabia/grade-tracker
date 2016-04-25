@@ -23,19 +23,21 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Created At</th>
-          <th>Due Date</th>
-          <th>Description</th>
-          <th>Is Complete?</th>
+          <th>Assignment Name</th>
+          <th>Student Score</th>
+          <th>Total</th>
+          <th>Letter Grade</th>
         </tr>
       </thead>
       <tbody>
 
         <% for(var i = 0; i < grades.length; i++) { %>
           <tr data-id=<%=grades[i].id%>  >
-            <td><%= grades[i].createdAt %></td>
-            <td><%= grades[i].dueDate %></td>
-            <td><%= grades[i].desc %></td>
+            <!-- <td><%= grades[i].createdAt %></td> -->
+            <td><%= grades[i].assignmentName %></td>
+            <td><%= grades[i].studentScore %></td>
+            <td><%= grades[i].totalScore %></td>
+            <td><%= grades[i].letterGrade %></td>
             <td>
               <% if(grades[i].isComplete) { %>
                 <input type="checkbox" name="" id="" checked>
@@ -63,16 +65,24 @@
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label for="newTodoDesc">Description</label>
+              <label for="newGradeAssignmentName">Assignment Name</label>
               <input type="text" class="form-control" id="newTodoDesc" placeholder="Buy Eggs." required>
             </div>
             <div class="form-group">
-              <label for="newTodoDueDate">Due Date</label>
-              <input type="date" class="form-control" id="newTodoDueDate" required>
+              <label for="newGradeStudentScore">Student Score</label>
+              <input type="number" class="form-control" id="newTodoDueDate" required>
+            </div>
+            <div class="form-group">
+              <label for="newGradeTotalScore">Total Score</label>
+              <input type="number" class="form-control" id="new" required>
+            </div>
+            <div class="newGradeLetterGrade">
+              <label for="newGradeLetterGrade">Letter Grade</label>
+              <input type="text" class="form-control" id="newGradeLetterGrade" required>
             </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Create Grade</button>
+            <button type="submit" class="btn btn-primary">Add Grade</button>
           </div>
         </form>
       </div><!-- /.modal-content -->

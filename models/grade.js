@@ -4,8 +4,6 @@ var db = require('../config/db');
 var moment = require('moment');
 
 db.run(`CREATE TABLE IF NOT EXISTS grades (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          createdAt DATETIME,
           assignmentName TEXT,
           studentScore INTEGER,
           totalScore INTEGER,
@@ -17,18 +15,14 @@ exports.get = function(cb) {
 };
 
 exports.create = function(grade, cb) {
-  if(!grade.dueDate || !grade.desc) {
+  if(!grade.assignmentName || !grade.studentScore) {
     return cb('Missing required field.')
   }
-
-  var createdAt = moment().unix();
-
 //TODO: Check and see if these are supposed to be objects
-  db.run('INSERT INTO grades (createdAt, assignmentName, studentScore, totalScore, letterGrade) VALUES (?, ?, ?, ?, ?)',
-    createdAt,
-    assignmentName,
-    studentScore,
-    totalScore,
-    letterGrade,
+  db.run('INSERT INTO grades (assignmentName, studentScore, totalScore, letterGrade) VALUES (?, ?, ?, ?)',
+    grade.assignmentName,
+    grade.studentScore,
+    grade.totalScore,
+    grade.letterGrade,
     cb);
 };
