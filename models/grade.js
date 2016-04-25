@@ -6,9 +6,10 @@ var moment = require('moment');
 db.run(`CREATE TABLE IF NOT EXISTS grades (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           createdAt DATETIME,
-          dueDate DATETIME,
-          desc TEXT,
-          isComplete BOOLEAN DEFAULT 0
+          assignmentName TEXT,
+          studentScore INTEGER,
+          totalScore INTEGER,
+          letterGrade TEXT
         )`);
 
 exports.get = function(cb) {
@@ -21,11 +22,13 @@ exports.create = function(grade, cb) {
   }
 
   var createdAt = moment().unix();
-  var dueDate = moment(grade.dueDate).unix();
 
-  db.run('INSERT INTO grades (createdAt, dueDate, desc) VALUES (?, ?, ?)',
+//TODO: Check and see if these are supposed to be objects
+  db.run('INSERT INTO grades (createdAt, assignmentName, studentScore, totalScore, letterGrade) VALUES (?, ?, ?, ?, ?)',
     createdAt,
-    dueDate,
-    grade.desc,
+    assignmentName,
+    studentScore,
+    totalScore,
+    letterGrade,
     cb);
 };

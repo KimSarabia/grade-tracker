@@ -18,7 +18,7 @@ router.route('/')
     });
   })
   .post((req, res) => {
-    // req.body  -->  { desc: ??, dueDate: ?? }
+    // req.body  -->  { totalScore: ??, assignmentName: ?? }
     Grade.create(req.body, err => {
       if(err) {
         return res.status(400).send(err);
