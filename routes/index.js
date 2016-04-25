@@ -4,22 +4,22 @@ var express = require('express');
 var router = express.Router();
 
 var moment = require('moment');
-var Todo = require('../models/todo');
+var Grade = require('../models/grade');
 
 //  GET /
 router.get('/', (req, res) => {
-  Todo.get((err, todos) => {
+  Grade.get((err, grades) => {
     if(err) {
       res.render('error', {error: err})
     } else {
 
-      todos = todos.map(todo => {
-        todo.dueDate = moment(todo.dueDate, 'X').format('l');
-        todo.createdAt = moment(todo.createdAt, 'X').format('l');
-        return todo;
+      grades = grades.map(grade => {
+        grade.dueDate = moment(grade.dueDate, 'X').format('l');
+        grade.createdAt = moment(grade.createdAt, 'X').format('l');
+        return grade;
       })
 
-      res.render('home', {todos: todos});
+      res.render('home', {grades: grades});
     }
   })
 })

@@ -18,7 +18,7 @@ function createNewTodo(e) {
   $('#newTodoDesc').val('');
   $('#newTodoDueDate').val('');
 
-  $.post('/api/todos', newTodo)
+  $.post('/api/grades', newTodo)
     .done(() => {
       // rerender the DOM
       $('.modal').modal('hide');

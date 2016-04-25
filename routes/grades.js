@@ -3,23 +3,23 @@
 var express = require('express');
 var router = express.Router();
 
-var Todo = require('../models/todo');
+var Grade = require('../models/grade');
 
-//   /api/todos
+//   /api/grades
 router.route('/')
   .get((req, res) => {
 
-    Todo.get((err, todos) => {
+    Grade.get((err, grades) => {
       if(err) {
         return res.status(400).send(err);
       }
 
-      res.send(todos);
+      res.send(grades);
     });
   })
   .post((req, res) => {
     // req.body  -->  { desc: ??, dueDate: ?? }
-    Todo.create(req.body, err => {
+    Grade.create(req.body, err => {
       if(err) {
         return res.status(400).send(err);
       }

@@ -1,12 +1,12 @@
 {
-  "name": "todo-from-scratch",
+  "name": "grade-from-scratch",
   "description": "",
   "main": "app.js",
   "authors": [
     "Cade Nichols <cade@cadenichols.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/CodingHouseFI/todo-from-scratch",
+  "homepage": "https://github.com/CodingHouseFI/grade-from-scratch",
   "ignore": [
     "**/.*",
     "node_modules",
