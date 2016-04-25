@@ -9,15 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodingHouseFI/todo-from-scratch.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CodingHouseFI/todo-from-scratch/issues"
   },
-  "homepage": "https://github.com/CodingHouseFI/todo-from-scratch#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
     "ejs": "^2.4.1",
